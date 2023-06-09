@@ -2,7 +2,7 @@ import { Box, Center, Text, Image } from 'native-base'
 import { View, StyleSheet } from 'react-native';
 
 const MediaInfoContainer = ({ route }) => {
-  const { image, title, name, releaseDate, popularity, overview } = route.params;
+  const { image, title, name, releaseDate, firstAirDate, popularity, overview } = route.params;
   return (
     <Box width='100%'>
       <Center py={10}>
@@ -20,7 +20,8 @@ const MediaInfoContainer = ({ route }) => {
         <Text>{overview}</Text>
           <View style={styles.subInfoCont}>
             <Text>Poupulariy: {popularity}</Text> 
-            <Text>Release Date: {releaseDate}</Text>
+            {title && !name && ( <Text>Release Date: {releaseDate}</Text> )}
+            {!title && name && ( <Text>Release Date: {firstAirDate}</Text> )}
           </View>
         </View>
           

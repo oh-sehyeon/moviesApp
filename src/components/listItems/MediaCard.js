@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Text, Pressable, StyleSheet } from 'react-native';
 
 const MediaCard = props => {
-  const { image, title, name, releaseDate, popularity, overview, navigation } = props
+  const { image, title, name, releaseDate, firstAirDate, popularity, overview, navigation } = props
   return (
     <View style={styles.container}>
       <View style={styles.imgCont}>
@@ -12,7 +12,8 @@ const MediaCard = props => {
         {title && ( <Text style={styles.title}>{title}</Text> )}
         {!title && name && ( <Text style={styles.title}>{name}</Text> )}
         <Text>Popularity: {popularity}</Text>
-        <Text>Release Date: {releaseDate}</Text>
+        {title && !name && ( <Text>Release Date: {releaseDate}</Text> )}
+        {!title && name && ( <Text>Release Date: {firstAirDate}</Text> )}
         <Pressable
         style={styles.button}
         onPress={() => {
@@ -22,7 +23,8 @@ const MediaCard = props => {
             image,
             overview,
             popularity,
-            releaseDate
+            releaseDate,
+            firstAirDate
           });
         }}          
         >

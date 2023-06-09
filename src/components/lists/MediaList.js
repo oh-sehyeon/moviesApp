@@ -14,6 +14,7 @@ const MediaList = props => {
           title={item.title}
           name={item.name}
           releaseDate={item.release_date}
+          firstAirDate={item.first_air_date}
           popularity={item.popularity}
           overview={item.overview}
           navigation={navigation}
